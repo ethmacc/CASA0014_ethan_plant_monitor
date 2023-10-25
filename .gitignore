@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+#Passwd file
+arduino_secrets.h
