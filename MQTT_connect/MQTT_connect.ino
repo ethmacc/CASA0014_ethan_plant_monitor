@@ -1,8 +1,8 @@
-//include the ESP8266WiFi library
+//include the ESP8266WiFi library and PubSubClient library for MQTT connection
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-// Wifi and MQTT
+// Import secret variables from arduino_secrets
 #include "arduino_secrets.h"
 
 const char* ssid = SECRET_SSID;
@@ -10,8 +10,10 @@ const char* password = SECRET_PASS;
 const char* mqttuser = SECRET_MQTTUSER;
 const char* mqttpass = SECRET_MQTTPASS;
 
+// set MQTT server
 const char* mqtt_server = "mqtt.cetools.org";
 
+// Instantiate WiFi and MQTT client
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
@@ -19,6 +21,7 @@ char msg[50];
 int value = 0;
 
 void setup() {
+  // Set up builtin LED
   pinMode(BUILTIN_LED, OUTPUT);
   digitalWrite(BUILTIN_LED, HIGH);
 
@@ -36,6 +39,7 @@ void loop() {
   sendMQTT();
 }
 
+// Function to connect to WiFi and show connection status
 void startWifi(){
   Serial.println();
   Serial.print("Connecting to ");
@@ -52,6 +56,7 @@ void startWifi(){
   Serial.println(WiFi.localIP());
 }
 
+// Receive message on the Feather and turn LED on/off depending on payload
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
@@ -69,6 +74,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 }
 
+// Function to reconnect to MQTT server
 void reconnect() {
   // Loop until reconnected
   while (!client.connected()) {
@@ -94,11 +100,13 @@ void reconnect() {
 
 void sendMQTT() {
 
+  // If not connected to MQTT server, attempt to connect
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
   ++value;
+  // Print hello world messages iteratively and publish them to the server
   snprintf (msg, 50, "hello world #%ld", value);
   Serial.print("Publish message: ");
   Serial.println(msg);
