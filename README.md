@@ -14,11 +14,14 @@ The main code for this project resides in the plant monitor v1 folder. The follo
 
 ## Hardware
 You will need the following hardware:
--An Adafruit Feather Huzzah (or similar ESP8266 based-board)
--Resistors, 2 x 10K Ohm and one each of 100 Ohm and 220 Ohm
--DHT22 sensor
--Two nails
--Two short lengths of wire
+- An Adafruit Feather Huzzah (or similar ESP8266 based-board)
+- Resistors, 2 x 10K Ohm and one each of 100 Ohm and 220 Ohm
+- DHT22 sensor
+- Two nails
+- Two short lengths of wire
 
 ## Method
-
+### Initial setup
+### Physical wiring
+### Functions in the code
+### What's next?
