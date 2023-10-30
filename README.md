@@ -36,7 +36,8 @@ The main code in plant monitor v1 can be pretty much run as is, however, you wil
 #define SECRET_MQTTUSER "" //add username for logging on to your mqtt server
 #define SECRET_MQTTPASS "" // add passsword for logging on to your mqtt server
 ```
-THe gitignore file in this repo should prevent this secret file from getting uploaded into the public domain, but do check before proceeding!
+Ensure that this file is saved in the plant_monitor_v1 folder next to the main script
+The gitignore file in this repo should prevent this secret file from getting uploaded into the public domain, but do check before proceeding!
 
 You may also wish to change the ```syncDate()``` function at line 111, to reflect your local timezone
 
