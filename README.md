@@ -25,8 +25,7 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ## Method
 ### Initial setup
 The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named:
-
-  arduino_secrets.h
+```arduino_secrets.h```
 
 
 
