@@ -24,10 +24,18 @@ And, of course, a plant to test the device with! Note that the author attempted 
 
 ## Method
 ### Initial setup
-The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named:
-```arduino_secrets.h```
+The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named ```arduino_secrets.h```, the contents of which should follow the following format:
 
+```
+#define SECRET_SSID "" //add your wifi ssid here in string form within the inverted commas
+#define SECRET_PASS "" //add your wifi password here in string form within the inverted commas
 
+#define SECRET_SSID2 "" //add another wifi ssid here if you have another network
+#define SECRET_PASS2 "" //add 2nd wifi password
+
+#define SECRET_MQTTUSER "" //add username for logging on to your mqtt server
+#define SECRET_MQTTPASS "" // add passsword for logging on to your mqtt server
+```
 
 ### Physical wiring
 ### Functions in the code
