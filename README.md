@@ -30,7 +30,7 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ## Method
 
 ### Physical wiring
-The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker)
+The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered.
 ...
 
 ### Initial setup
