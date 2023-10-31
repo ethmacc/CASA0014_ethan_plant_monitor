@@ -49,6 +49,14 @@ NOTE: The gitignore file in this repo should prevent this secret file from getti
 
 You may also wish to change the ```syncDate()``` function at line 111, to reflect your local timezone
 
+### Unit tests
+You may wish to test specific functions of the Feather Huzzah, such as its ability to connect to a WiFi network or MQTT server, before running the main project sketch. For this purpose, a series of test sketches have been included here in this repository:
+
+- MQTT connect - tests the Feather's ability to connect an publish to an MQTT server
+- feather read time - tests the Feather's ability to use the ezTime library to generate local timestamps
+- feather read web - tests the Feather's ability to connect to a WiFi network and read off the HTML code for a webpage
+- test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
+
 ### Physical wiring
 ### Functions in the code
 ### What's next?
