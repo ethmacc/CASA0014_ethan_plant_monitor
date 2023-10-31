@@ -11,7 +11,7 @@ The main code for this project resides in the plant monitor v1 folder. The follo
 - DHT sensor library by Adafruit - for the DHT22 temperature and humidity sensor
 - ezTime by Rop Gonggrijp - for generating timestamps for each datapoint
 
-Your Arduino IDE should also have the ESP8266 board package installed, so as to be able to compile and push sketches to the Feather Huzzah (further detail can be found on Adafruit's website: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
+Your Arduino IDE should also have the ESP8266 board package installed, so as to be able to compile and push sketches to the Feather Huzzah (further detail can be found on Adafruit's website: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide) and access WiFi networks with your ESP8266
 
 ## Hardware
 You will need the following hardware:
