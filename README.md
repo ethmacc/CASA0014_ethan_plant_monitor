@@ -58,5 +58,8 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
 ### Physical wiring
+The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker)
+...
+
 ### Functions in the code
 ### What's next?
