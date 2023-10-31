@@ -37,7 +37,7 @@ The main code in plant monitor v1 can be pretty much run as is, however, you wil
 #define SECRET_MQTTUSER "" //add username for logging on to your mqtt server
 #define SECRET_MQTTPASS "" // add passsword for logging on to your mqtt server
 ```
-Ensure that this file is saved in the plant_monitor_v1 folder next to the main script.
+Ensure that this file is saved in the plant_monitor_v1 folder next to the main script. Example code has been adapted from the ESP8266WifiMulti.h library (https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/WiFiMulti/WiFiMulti.ino) to manage more than one WiFi network - which can be handy if you are moving the plant monitor from one location to another.
 
 NOTE: The gitignore file in this repo should prevent this secret file from getting uploaded into the public domain, but do check before proceeding!
 
