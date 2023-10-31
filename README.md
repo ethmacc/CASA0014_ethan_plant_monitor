@@ -23,7 +23,8 @@ You will need the following hardware:
 
 And, of course, a plant to test the device with! Note that the author attempted to test this plant monitor on a cactus, but the soil was found to be too dry to read any significant value! A plant species that requires more moist soil is therefore recommended.
 
-<img src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/048f29ca-0df1-4a15-9e11-2684abd09f2f" width="200" />
+<img src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/048f29ca-0df1-4a15-9e11-2684abd09f2f" width="400" />
+
 *Not a good idea to use this type of plant!*
 
 ## Method
