@@ -7,11 +7,11 @@ The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capab
 
 ## Dependencies
 The main code for this project resides in the plant monitor v1 folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
-- PubSubClient by Nick O'Leary - for constructing the mqtt client to publish data to the MQTT server
-- DHT sensor library by Adafruit - for the DHT22 temperature and humidity sensor
-- ezTime by Rop Gonggrijp - for generating timestamps for each datapoint
+- **PubSubClient** by Nick O'Leary - for constructing the mqtt client to publish data to the MQTT server
+- **DHT sensor library** by Adafruit - for the DHT22 temperature and humidity sensor
+- **ezTime** by Rop Gonggrijp - for generating timestamps for each datapoint
 
-Your Arduino IDE should also have the ESP8266 board package installed, so as to be able to compile and push sketches to the Feather Huzzah (further detail can be found on Adafruit's website: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide) and access WiFi networks with your ESP8266
+Your Arduino IDE should also have the **ESP8266 board package** installed, so as to be able to compile and push sketches to the Feather Huzzah (further detail can be found on Adafruit's website: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide) and access WiFi networks with your ESP8266
 
 ## Hardware
 You will need the following hardware:
