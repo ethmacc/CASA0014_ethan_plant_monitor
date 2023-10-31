@@ -28,6 +28,11 @@ And, of course, a plant to test the device with! Note that the author attempted 
 *Not a good idea to use this type of plant!*
 
 ## Method
+
+### Physical wiring
+The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker)
+...
+
 ### Initial setup
 The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named ```arduino_secrets.h```, the contents of which should follow the following format:
 
@@ -56,10 +61,6 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - feather read time - tests the Feather's ability to use the ezTime library to generate local timestamps
 - feather read web - tests the Feather's ability to connect to a WiFi network and read off the HTML code for a webpage
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
-
-### Physical wiring
-The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker)
-...
 
 ### Functions in the code
 ### What's next?
