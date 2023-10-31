@@ -63,4 +63,4 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
 ### Functions in the code
-## Data pull and visualisation
+## Data streaming and visualisation
