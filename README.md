@@ -23,6 +23,9 @@ You will need the following hardware:
 
 And, of course, a plant to test the device with! Note that the author attempted to test this plant monitor on a cactus, but the soil was found to be too dry to read any significant value! A plant species that requires more moist soil is therefore recommended.
 
+![IMG_6581](https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/048f29ca-0df1-4a15-9e11-2684abd09f2f)
+*Not a good idea to use this type of plant!*
+
 ## Method
 ### Initial setup
 The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named ```arduino_secrets.h```, the contents of which should follow the following format:
