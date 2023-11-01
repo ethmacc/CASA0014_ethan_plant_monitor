@@ -10,7 +10,7 @@ The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capab
 Overall though, like all plant monitor projects, I suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
 
 ## Dependencies
-The main code for this project resides in the plant monitor v1 folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
+The main code for this project resides in the plant monitor folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
 - **PubSubClient** by Nick O'Leary - for constructing the mqtt client to publish data to the MQTT server
 - **DHT sensor library** by Adafruit - for the DHT22 temperature and humidity sensor
 - **ezTime** by Rop Gonggrijp - for generating timestamps for each datapoint
