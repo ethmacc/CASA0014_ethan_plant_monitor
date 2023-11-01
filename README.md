@@ -1,6 +1,8 @@
 # CASA0014_ethan_plant_monitor
 
 ## Overview
+<img src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1439dc73-8196-4303-8cb2-74dec9020083" width="400" />
+
 This repository contains the arduino code for Ethan's plant monitor for the CASA0014 module. It builds upon the standard workshop materials (as seen in the module repository: https://github.com/ucl-casa-ce/casa0014/tree/main/plantMonitor#overview), with a few improvements and customizations.
 
 The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capable of sensing soil moisture, air humidity and temperature of a potted plant over regular intervals and store this data in a timeseries database, as well as express and communicate this data in a novel and engaging way.
