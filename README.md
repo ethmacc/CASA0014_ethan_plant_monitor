@@ -58,7 +58,7 @@ Example code has been adapted from the ESP8266WifiMulti.h library (https://githu
 
 NOTE: The gitignore file in this repo should prevent this secret file from getting uploaded into the public domain, but do check before proceeding!
 
-You may also wish to change the ```syncDate()``` function at line 111, to reflect your local timezone
+**You should also change the ```syncDate()``` function, to reflect your local timezone, the ```mqtt_server``` variable to the address of your MQTT server and the ```client.publish()``` function inputs to reflect your unique MQTT server and topic structure**
 
 ### Unit tests
 You may wish to test specific functions of the Feather Huzzah, such as its ability to connect to a WiFi network or MQTT server, before running the main project sketch. For this purpose, a series of test sketches have been included here in this repository:
@@ -74,7 +74,11 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
 
 ### Browsing realtime data with MQTT explorer
+The first thing to check before getting on to storing the data in a databse is that the sensor readings are in fact being published to the MQTT server. This can be done by downloading and installing MQTT Explorer (http://mqtt-explorer.com/) which is a MQTT client with a graphical interface. It allows you to browse data on your MQTT server and what is being published to it, by topic, in real time:
+
 <img width="1280" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
+
+Bear in mind you may have to wait for 1 minute for the data to be published (as this is what is set in the arduino code). If you cannot see your data being published, you will need to check that the Arduino is connecting to both the WiFi network and MQTT server successfully and is publishing data to the correct topic.
 
 ### Storing historic data
 - Option to use Raspberry Pi and influxdb
