@@ -80,3 +80,6 @@ With the physical plant monitor set-up, it's now time to take a look at where th
 - Option to use Raspberry Pi and influxdb
 
 ### Data visualisation with Grafana
+<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/abc6ea13-c163-421b-89c1-eebeca01a9cd">
+<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/7f0cb235-8677-44b2-9dab-7f474fb5589c">
+
