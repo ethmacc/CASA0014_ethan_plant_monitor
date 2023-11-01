@@ -7,7 +7,7 @@ This repository contains the arduino code for Ethan's plant monitor for the CASA
 
 The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capable of sensing soil moisture, air humidity and temperature of a potted plant over regular intervals and store this data in a timeseries database, as well as express and communicate this data in a novel and engaging way.
 
-Overall though, like all plant monitor projects, I suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
+Overall though, like all plant monitor projects, we suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
 
 ## Dependencies
 The main code for this project resides in the plant monitor folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
@@ -68,8 +68,6 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - feather read web - tests the Feather's ability to connect to a WiFi network and read off the HTML code for a webpage
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
-### Functions in the code
-
 ## Data streaming and visualisation
 With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
 
@@ -81,7 +79,8 @@ The first thing to check before getting on to storing the data in a databse is t
 Bear in mind you may have to wait for 1 minute for the data to be published (as this is what is set in the arduino code). If you cannot see your data being published, you will need to check that the Arduino is connecting to both the WiFi network and MQTT server successfully and is publishing data to the correct topic.
 
 ### Storing historic data
-- Option to use Raspberry Pi and influxdb
+If you have a WiFi-capable Raspberry Pi (Pi3 B or later) you can configure it to act as a gateway to read and store data from the MQTT server in an influxdb database. For this project, 
+
 ![IMG_6585](https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/47d3460e-caa5-4541-9b9c-e4030b9ad62b)
 
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
