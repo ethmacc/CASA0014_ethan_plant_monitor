@@ -78,8 +78,20 @@ With the physical plant monitor set-up, it's now time to take a look at where th
 
 ### Storing historic data
 - Option to use Raspberry Pi and influxdb
+<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
+
 
 ### Data visualisation with Grafana
+```
+from(bucket: "mqtt-data")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "mqtt_consumer")
+  |> filter(fn: (r) => r["_field"] == "value")
+  |> filter(fn: (r) => r["host"] == "stud-pi-uclqlel")
+  |> filter(fn: (r) => r["plant-topics"] == "student/CASA0014/plant/uclqlel/moisture" or r["plant-topics"] == "student/CASA0014/plant/uclqlel/humidity" or r["plant-topics"] == "student/CASA0014/plant/uclqlel/temperature")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+```
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/abc6ea13-c163-421b-89c1-eebeca01a9cd">
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/7f0cb235-8677-44b2-9dab-7f474fb5589c">
 
