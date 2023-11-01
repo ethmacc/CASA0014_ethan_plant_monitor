@@ -64,11 +64,11 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
 ### Functions in the code
-<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
 
 ## Data streaming and visualisation
 
 ### Browsing realtime data with MQTT explorer
+<img width="1280" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
 
 ### Storing historic data
 - Option to use Raspberry Pi and influxdb
