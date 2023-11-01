@@ -91,25 +91,41 @@ If you have a WiFi-capable Raspberry Pi (Pi3 B or later) you can configure it to
 #### Influxdb timeseries database
 Once you have your Raspberry Pi set up and you are logged in, you will need to install influxdb, which is the timeseries database that we have used. The instructions to do this can be found here: https://pimylifeup.com/raspberry-pi-influxdb/. 
 
-After this is done, you can then login to influxdb by entering ```<your-hostname-here>:8086``` into a webbrowser, creating a new account and signing in. You will then need to install the Raspberry Pi template in the templates section and create a new bucket in the Load Data section to collect your plant data from the MQTT server.
-
-<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
+After this is done, you can then login to influxdb by entering ```<your-hostname-here>:8086``` into a web browser, creating a new account and signing in. You will then need to install the Raspberry Pi template in the templates section and create a new bucket in the Load Data section to collect your plant data from the MQTT server.
 
 #### Telegraf setup
-You will need a means of collecting timeseries data and streaming this into influxdb. We do this with telegraf, which can be installed with the following in you Raspberry Pi's command line terminal:
+We need a means of collecting timeseries data and streaming this into influxdb. We do this with telegraf, which can be installed with the following in you Raspberry Pi's command line terminal:
 
 ```sudo apt-get update && sudo apt-get install telegraf -y```
 
-
-
-
+You will then need to define the PATH variables, as well as the API keys to allow telegraf to communicate with influxdb. We do this by running the following commands in the terminal:
 
 ```
-export INFLUX_HOST=http://10.129.101.214:8086
-export INFLUX_ORG=casa0014
+export INFLUX_HOST=<your_raspberrypi_ip_address:8086>
+export INFLUX_ORG=<your_organisation>
 ```
+Then editing the telegraf configuration file to include your API keys (generated from the influxdb page) and define input and output plugins for MQTT. Detailed information on how to do this and the syntax to use can be found in influxdb's own documentation: https://docs.influxdata.com/telegraf/v1/configuration/
+
+Don't forget to restart influxdb and telegraf for the changes to take effect:
+```
+sudo systemctl stop telegraf
+sudo systemctl stop influxdb
+sudo systemctl start influxdb
+sudo systemctl start telegraf
+```
+
+### Viewing your timeseries data
+All going well, by clicking onthe data explorer tab, you should now be able to navigate by tag to display your timeseries data:
+
+<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
 
 ### Data visualisation with Grafana
+Should you wish to display your monitored data in a more aesthetically pleasing format, Grafana may be another option. You can get to this by entering ```<your-hostname>:3000 in a web browser, creating a new account and signing in.
+
+Create a new panel using the menu on your left and go to the query input box at the bottom.
+
+You can either write your own query or copy the query from influxdb's data explorer to Grafana:
+
 ```
 from(bucket: "mqtt-data")
   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
@@ -120,6 +136,8 @@ from(bucket: "mqtt-data")
   |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
   |> yield(name: "mean")
 ```
+There are also various options for different types of data display, such as dials. We have configured ours as below, to show both point readings in time, as well as the data over a period of time: 
+
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/abc6ea13-c163-421b-89c1-eebeca01a9cd">
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/7f0cb235-8677-44b2-9dab-7f474fb5589c">
 
