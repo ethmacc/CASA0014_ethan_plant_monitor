@@ -1,7 +1,7 @@
 # CASA0014_ethan_plant_monitor
 
 ## Overview
-<img src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1439dc73-8196-4303-8cb2-74dec9020083" width="400" />
+<img src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/f24ebbc4-d1fe-468c-a3ec-134aeb68d31e" width="400" />
 
 This repository contains the arduino code for Ethan's plant monitor for the CASA0014 module. It builds upon the standard workshop materials (as seen in the module repository: https://github.com/ucl-casa-ce/casa0014/tree/main/plantMonitor#overview), with a few improvements and customizations.
 
