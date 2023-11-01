@@ -20,6 +20,7 @@ You will need the following hardware:
 - DHT22 sensor
 - Two nails
 - Two short lengths of wire
+- Breadboard and connectors for prototyping
 
 And, of course, a plant to test the device with! Note that the author attempted to test this plant monitor on a cactus, but the soil was found to be too dry to read any significant value! A plant species that requires more moist soil is therefore recommended.
 
