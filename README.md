@@ -68,6 +68,9 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - feather read web - tests the Feather's ability to connect to a WiFi network and read off the HTML code for a webpage
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
+### Physical tests
+Add detail on stress testing the limits of the sensors
+
 ## Data streaming and visualisation
 With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
 
@@ -79,12 +82,32 @@ The first thing to check before getting on to storing the data in a databse is t
 Bear in mind you may have to wait for 1 minute for the data to be published (as this is what is set in the arduino code). If you cannot see your data being published, you will need to check that the Arduino is connecting to both the WiFi network and MQTT server successfully and is publishing data to the correct topic.
 
 ### Storing historic data
-If you have a WiFi-capable Raspberry Pi (Pi3 B or later) you can configure it to act as a gateway to read and store data from the MQTT server in an influxdb database. For this project, 
+
+#### Raspberry Pi as a gateway
+If you have a WiFi-capable Raspberry Pi (Pi3 B or later) you can configure it to act as a gateway to read and store data from the MQTT server in an influxdb database. For this project, a Pi 4 was used with a headless setup (i.e. no monitor, accessed via the command line and SSH). Instructions on how to set up your Raspberry Pi can be found on here: https://www.tomshardware.com/reviews/raspberry-pi-headless-setup-how-to,6028.html
 
 ![IMG_6585](https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/47d3460e-caa5-4541-9b9c-e4030b9ad62b)
 
+#### Influxdb timeseries database
+Once you have your Raspberry Pi set up and you are logged in, you will need to install influxdb, which is the timeseries database that we have used. The instructions to do this can be found here: https://pimylifeup.com/raspberry-pi-influxdb/. 
+
+After this is done, you can then login to influxdb by entering ```<your-hostname-here>:8086``` into a webbrowser, creating a new account and signing in. You will then need to install the Raspberry Pi template in the templates section and create a new bucket in the Load Data section to collect your plant data from the MQTT server.
+
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
 
+#### Telegraf setup
+You will need a means of collecting timeseries data and streaming this into influxdb. We do this with telegraf, which can be installed with the following in you Raspberry Pi's command line terminal:
+
+```sudo apt-get update && sudo apt-get install telegraf -y```
+
+
+
+
+
+```
+export INFLUX_HOST=http://10.129.101.214:8086
+export INFLUX_ORG=casa0014
+```
 
 ### Data visualisation with Grafana
 ```
