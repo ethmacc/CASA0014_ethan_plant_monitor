@@ -78,6 +78,8 @@ With the physical plant monitor set-up, it's now time to take a look at where th
 
 ### Storing historic data
 - Option to use Raspberry Pi and influxdb
+![IMG_6585](https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/47d3460e-caa5-4541-9b9c-e4030b9ad62b)
+
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
 
 
