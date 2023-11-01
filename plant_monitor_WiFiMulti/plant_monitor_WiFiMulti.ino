@@ -28,10 +28,13 @@ const char* password2 = SECRET_PASS2;
 const char* mqttuser = SECRET_MQTTUSER;
 const char* mqttpass = SECRET_MQTTPASS;
 
+// Construct WiFi and MQTT client instances
 ESP8266WebServer server(80);
 const char* mqtt_server = "mqtt.cetools.org";
+
 ESP8266WiFiMulti wifiMulti;
 const uint32_t connectTimeout = 5000;
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
@@ -205,16 +208,19 @@ void reconnect() {
   }
 }
 
+// Send HTML to server
 void handle_OnConnect() {
   Temperature = dht.readTemperature(); // Get temperature value
   Humidity = dht.readHumidity(); // Get humidity value
   server.send(200, "text/html", SendHTML(Temperature, Humidity, Moisture));
 }
 
+// Handle webpage not found error
 void handle_NotFound() {
   server.send(404, "text/plain", "Not Found");
 }
 
+// Format HTML with plant data as a single long string to be hosted online
 String SendHTML(float Temperaturestat, float Humiditystat, int Moisturestat) {
   String ptr = "<!DOCTYPE html> <html>\n";
   ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
