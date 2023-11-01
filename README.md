@@ -66,6 +66,7 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 ### Functions in the code
 
 ## Data streaming and visualisation
+With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
 
 ### Browsing realtime data with MQTT explorer
 <img width="1280" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
