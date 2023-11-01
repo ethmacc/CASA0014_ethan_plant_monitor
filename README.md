@@ -3,7 +3,9 @@
 ## Overview
 This repository contains the arduino code for Ethan's plant monitor for the CASA0014 module. It builds upon the standard workshop materials (as seen in the module repository: https://github.com/ucl-casa-ce/casa0014/tree/main/plantMonitor#overview), with a few improvements and customizations.
 
-The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capable of sensing soil moisture, air humidity and temperature of a potted plant and store historic data in a timeseries database, as well as express and communicate this data in a novel and engaging way.
+The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capable of sensing soil moisture, air humidity and temperature of a potted plant over regular intervals and store this data in a timeseries database, as well as express and communicate this data in a novel and engaging way.
+
+Overall though, like all plant monitor projects, I suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
 
 ## Dependencies
 The main code for this project resides in the plant monitor v1 folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
@@ -20,6 +22,7 @@ You will need the following hardware:
 - DHT22 sensor
 - Two nails
 - Two short lengths of wire
+- Breadboard and connectors for prototyping
 
 And, of course, a plant to test the device with! Note that the author attempted to test this plant monitor on a cactus, but the soil was found to be too dry to read any significant value! A plant species that requires more moist soil is therefore recommended.
 
@@ -30,7 +33,8 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ## Method
 
 ### Physical wiring
-The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker)
+The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered.
+
 ...
 
 ### Initial setup
@@ -63,4 +67,14 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
 ### Functions in the code
+
 ## Data streaming and visualisation
+With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
+
+### Browsing realtime data with MQTT explorer
+<img width="1280" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
+
+### Storing historic data
+- Option to use Raspberry Pi and influxdb
+
+### Data visualisation with Grafana
