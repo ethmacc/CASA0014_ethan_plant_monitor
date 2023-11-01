@@ -40,7 +40,7 @@ The circuit we will be using is a variation on the classic arduino soil moisture
 ...
 
 ### Initial setup
-The main code in plant monitor v1 can be pretty much run as is, however, you will need to write a file named ```arduino_secrets.h```, the contents of which should follow the following format:
+The main code in plant monitor folder can be pretty much uploaded to your Feather Huzzah and run as is, however, you will need to write a file named ```arduino_secrets.h```, the contents of which should follow the following format:
 
 ```
 #define SECRET_SSID "" //add your wifi ssid here in string form within the inverted commas
