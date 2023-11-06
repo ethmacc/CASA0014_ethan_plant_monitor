@@ -120,7 +120,7 @@ All going well, by clicking onthe data explorer tab, you should now be able to n
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
 
 ### Data visualisation with Grafana
-Should you wish to display your monitored data in a more aesthetically pleasing format, Grafana may be another option. You can get to this by entering ```<your-hostname>:3000 in a web browser, creating a new account and signing in.
+Should you wish to display your monitored data in a more aesthetically pleasing format, Grafana may be another option. You can get to this by entering ```<your-hostname>:3000``` in a web browser, creating a new account and signing in.
 
 Create a new panel using the menu on your left and go to the query input box at the bottom.
 
