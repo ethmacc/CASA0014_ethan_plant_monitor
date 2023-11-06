@@ -138,8 +138,7 @@ from(bucket: "mqtt-data")
 ```
 There are also various options for different types of data display, such as dials. We have configured ours as below, to show both point readings in time, as well as the data over a period of time: 
 
-<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/abc6ea13-c163-421b-89c1-eebeca01a9cd">
-<img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/7f0cb235-8677-44b2-9dab-7f474fb5589c">
+<img width="1000" alt="Screenshot 2023-11-06 172912" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/d08773e8-d372-4b46-a721-c7a2467dd369">
 
 ### Unity
 
