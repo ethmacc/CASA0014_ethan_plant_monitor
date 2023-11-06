@@ -79,7 +79,7 @@ The first thing to check before getting on to storing the data in a databse is t
 
 <img width="1280" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/dcd8997b-5833-4eb4-a752-eeaebb9eeeb5">
 
-Bear in mind you may have to wait for 1 minute for the data to be published (as this is what is set in the arduino code). If you cannot see your data being published, you will need to check that the Arduino is connecting to both the WiFi network and MQTT server successfully and is publishing data to the correct topic.
+**Bear in mind you may have to wait for up to 1 minute for the data to be published** (as this is what is set in the arduino code). If you cannot see your data being published, you will need to check that the Arduino is connecting to both the WiFi network and MQTT server successfully and is publishing data to the correct topic.
 
 ### Storing historic data
 
