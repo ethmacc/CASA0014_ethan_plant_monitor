@@ -123,7 +123,7 @@ All going well, by clicking onthe data explorer tab, you should now be able to n
 
 <img width="1000" alt="image" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/9d398dbe-5b10-4522-89a5-73dcaec6d8ab">
 
-### Data visualisation with Grafana
+## Data visualisation with Grafana
 Should you wish to display your monitored data in a more aesthetically pleasing format, Grafana may be another option. You can get to this by entering ```<your-hostname>:3000``` in a web browser, creating a new account and signing in.
 
 Create a new panel using the menu on your left and go to the query input box at the bottom.
@@ -148,12 +148,12 @@ I tried to choose colour schemes and graphics appropriate to each data type, e.g
 
 Do note that leaving the setup for a couple of days, it appears that there is some latency/lag whenever grafana is restarted. If you're not getting data displayed on your dashboard immediately - don't panic, wait a couple of minutes and refresh the page.
 
-#### Results
+### Results
 As expected for the controlled environment of the lab, temperature and relative humidity did fluctuate over the week I had the plant monitor on, but the trend was relatively stable overall. More interestingly, the soil moisture level started out high just after I had watered the plant (about 95), but it slowly dropped in an almost exponential curve, petering out at about 22. Decrease in soil moisture was extremely rapid over the first few days, but slowed down significantly towards the end of the week. Not being a botanist, I suspect this could be for a couple of reasons:
 1. The plant, a succulent, had already absorbed enough water into its reserves, like a cactus, so it slowed down its water intake
 2. The soil moisture value of around 20 represents dry soil that has already been largely depleted of water by the plant.
 
-### Unity
+## Unity
 I followed up the Grafana dashboard with a simple Unity application that changes the terrain and skybox textures whenever the plant is in distress:
 
 <img width="726" alt="Screenshot 2023-11-06 180635" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/224356a7-ad5c-4467-8713-0f87c9e6d816">
@@ -165,4 +165,4 @@ _The landscape is dry and arid when the soil moisture is low_
 <img width="726" alt="Screenshot 2023-11-06 181144" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1e72838b-13b1-4107-a4c4-b62e4cfa907f">
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
-### Future Implementations
+## Future Implementations
