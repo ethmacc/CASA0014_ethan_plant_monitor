@@ -7,7 +7,7 @@ This repository contains the arduino code for Ethan's plant monitor for the CASA
 
 The goal was to build an IoT device (based on the Adafruit Feather Huzzah) capable of sensing soil moisture, air humidity and temperature of a potted plant over regular intervals and store this data in a timeseries database, as well as express and communicate this data in a novel and engaging way.
 
-Overall though, like all plant monitor projects, we suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
+Overall though, like all plant monitor projects, I suppose the more intangible aspiration is to help us care for our leafy friends through a data-driven understanding of their optimal environments and watering schedules.
 
 ## Dependencies
 The main code for this project resides in the plant monitor folder. The following dependencies must be installed for the script to be compiled and uploaded successfully:
@@ -35,7 +35,7 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ## Method
 
 ### Physical wiring
-The circuit we will be using is a variation on the classic arduino soil moisture sensor (the primary one we've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered.
+The circuit I will be using is a variation on the classic arduino soil moisture sensor (the primary one I've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered.
 
 ...
 
@@ -69,7 +69,11 @@ You may wish to test specific functions of the Feather Huzzah, such as its abili
 - test moisture - tests the nail soil moisture sensor setup (your physical plant monitor circuit should be prepared before attempting this test)
 
 ### Physical tests
-Add detail on stress testing the limits of the sensors
+It is a worthy exercise to test all the physical sensors to ensure they are working as expected:
+
+- For the nail soil moisture sensor - put the two nails together to create a connected circuit with the lowest possible resistance. Together with the test moisture script, you should see that this produces a value of about 1000 (it was 1200 for my set up). Then leave the nails alone, but out of the soil and not touching each other. This should ne the maximum possible resistance and you should get a very low reading (12 for my setup).
+- For the DHT22 temperature sensor - try moving it outdoors and see if there is any significant change. In the warmer months this may be a bit harder to test, perhaps consider putting it in the refrigerator for a short while?
+- For the DHT22 humidity sensor - I've found that putting a palm around the sensor is already enough to cause an increase in the measured humidity value -unless you have very dry hands!
 
 ## Data streaming and visualisation
 With the physical plant monitor set-up, it's now time to take a look at where the data is going, and different options for storing and visualising your plant data.
@@ -89,16 +93,16 @@ If you have a WiFi-capable Raspberry Pi (Pi3 B or later) you can configure it to
 ![IMG_6585](https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/47d3460e-caa5-4541-9b9c-e4030b9ad62b)
 
 #### Influxdb timeseries database
-Once you have your Raspberry Pi set up and you are logged in, you will need to install influxdb, which is the timeseries database that we have used. The instructions to do this can be found here: https://pimylifeup.com/raspberry-pi-influxdb/. 
+Once you have your Raspberry Pi set up and you are logged in, you will need to install influxdb, which is the timeseries database that I have used. The instructions to do this can be found here: https://pimylifeup.com/raspberry-pi-influxdb/. 
 
 After this is done, you can then login to influxdb by entering ```<your-hostname-here>:8086``` into a web browser, creating a new account and signing in. You will then need to install the Raspberry Pi template in the templates section and create a new bucket in the Load Data section to collect your plant data from the MQTT server.
 
 #### Telegraf setup
-We need a means of collecting timeseries data and streaming this into influxdb. We do this with telegraf, which can be installed with the following in you Raspberry Pi's command line terminal:
+We need a means of collecting timeseries data and streaming this into influxdb. I did this with telegraf, which can be installed with the following in you Raspberry Pi's command line terminal:
 
 ```sudo apt-get update && sudo apt-get install telegraf -y```
 
-You will then need to define the PATH variables, as well as the API keys to allow telegraf to communicate with influxdb. We do this by running the following commands in the terminal:
+You will then need to define the PATH variables, as well as the API keys to allow telegraf to communicate with influxdb. I did this by running the following commands in the terminal:
 
 ```
 export INFLUX_HOST=<your_raspberrypi_ip_address:8086>
@@ -136,15 +140,29 @@ from(bucket: "mqtt-data")
   |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
   |> yield(name: "mean")
 ```
-There are also various options for different types of data display, such as dials. We have configured ours as below, to show both point readings in time, as well as the data over a period of time: 
+There are also various options for different types of data display, such as dials. I have configured mine as below, to show both point readings in time, as well as the data over a period of time: 
 
 <img width="1000" alt="Screenshot 2023-11-06 172912" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/d08773e8-d372-4b46-a721-c7a2467dd369">
 
+I tried to choose colour schemes and graphics appropriate to each data type, e.g. for soil moisture, I used a blue-yellow colormap, such that the timeseries graph and the dial would go from blue when the soil was freshly watered to yellow as the plant used up more of the moisture in the soil.
+
+Do note that leaving the setup for a couple of days, it appears that there is some latency/lag whenever grafana is restarted. If you're not getting data displayed on your dashboard immediately - don't panic, wait a couple of minutes and refresh the page.
+
+#### Results
+As expected for the controlled environment of the lab, temperature and relative humidity did fluctuate over the week I had the plant monitor on, but the trend was relatively stable overall. More interestingly, the soil moisture level started out high just after I had watered the plant (about 95), but it slowly dropped in an almost exponential curve, petering out at about 22. Decrease in soil moisture was extremely rapid over the first few days, but slowed down significantly towards the end of the week. Not being a botanist, I suspect this could be for a couple of reasons:
+1. The plant, a succulent, had already absorbed enough water into its reserves, like a cactus, so it slowed down its water intake
+2. The soil moisture value of around 20 represents dry soil that has already been largely depleted of water by the plant.
+
 ### Unity
+I followed up the Grafana dashboard with a simple Unity application that changes the terrain and skybox textures whenever the plant is in distress:
+
 <img width="726" alt="Screenshot 2023-11-06 180635" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/224356a7-ad5c-4467-8713-0f87c9e6d816">
+_The landscape is green when the plant is watered, healthy and warm_
 
 <img width="726" alt="Screenshot 2023-11-06 180622" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/6b2b3bf1-be01-4088-8695-b18235e0b2cb">
+_The landscape is dry and arid when the soil moisture is low_
 
 <img width="726" alt="Screenshot 2023-11-06 181144" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1e72838b-13b1-4107-a4c4-b62e4cfa907f">
+_The landscape is snowy when the plant is cold and the air humidity is high_
 
-
+### Future Implementations
