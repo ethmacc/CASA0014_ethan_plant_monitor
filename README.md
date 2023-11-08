@@ -108,7 +108,7 @@ You will then need to define the PATH variables, as well as the API keys to allo
 export INFLUX_HOST=<your_raspberrypi_ip_address:8086>
 export INFLUX_ORG=<your_organisation>
 ```
-Then editing the telegraf configuration file to include your API keys (generated from the influxdb page) and define input and output plugins for MQTT. Detailed information on how to do this and the syntax to use can be found in influxdb's own documentation: https://docs.influxdata.com/telegraf/v1/configuration/
+Following this, edit the telegraf configuration file to include your API keys (generated from the influxdb page) and define input and output plugins for MQTT. Detailed information on how to do this and the syntax to use can be found in influxdb's own documentation: https://docs.influxdata.com/telegraf/v1/configuration/
 
 Don't forget to restart influxdb and telegraf for the changes to take effect:
 ```
