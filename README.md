@@ -185,4 +185,5 @@ If you wish to make this for yourself, you will need to import the asset folder 
 
 ## Future Implementations
 - Smoother transistion between terrain textures/seasons in the Unity app
+- More life in the UNity landscapes - maybe animated animals?
 - Test the plant monitor with a battery pack. This, together with the multiple WiFi networks defined with the WiFiMulti library, should allow the plant monitor to become a portable setup - monitor your plant on the go!
