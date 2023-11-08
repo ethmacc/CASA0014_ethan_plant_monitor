@@ -169,7 +169,7 @@ _The landscape is dry and arid when the soil moisture is low_
 
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
-This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder
+This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts (```mqttController.cs``` and ```mqttReceiver.cs```) from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (```SwapTerrain.cs```, adapted from https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder
 
 <img width="726" alt="Unity screenshot" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/92c74470-1293-4b98-be86-af728e714a26">
 
