@@ -14,6 +14,7 @@ The main code for this project resides in the plant monitor folder. The followin
 - **PubSubClient** by Nick O'Leary - for constructing the mqtt client to publish data to the MQTT server
 - **DHT sensor library** by Adafruit - for the DHT22 temperature and humidity sensor
 - **ezTime** by Rop Gonggrijp - for generating timestamps for each datapoint
+- **ESP8266WifiMulti.h** - for connecting to WiFi networks
 
 Your Arduino IDE should also have the **ESP8266 board package** installed, so as to be able to compile and push sketches to the Feather Huzzah (further detail can be found on Adafruit's website: https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide) and access WiFi networks with your ESP8266
 
@@ -35,7 +36,7 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ## Method
 
 ### Physical wiring
-The circuit I have used is a variation on the classic arduino soil moisture sensor (the primary one I've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered.
+The circuit I have used is a variation on the classic arduino soil moisture sensor (the primary one I've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered. The version used here makes use of the Feather Huzzah to control when the nail sensor is switched on to take readings (every 1 minute) to prevent electrolysis, which happens whenever current flows through the nails.
 
 ...
 
@@ -157,12 +158,31 @@ As expected for the controlled environment of the lab, temperature and relative 
 I followed up the Grafana dashboard with a simple Unity application that changes the terrain and skybox textures whenever the plant is in distress:
 
 <img width="726" alt="Screenshot 2023-11-06 180635" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/224356a7-ad5c-4467-8713-0f87c9e6d816">
+
 _The landscape is green when the plant is watered, healthy and warm_
 
 <img width="726" alt="Screenshot 2023-11-06 180622" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/6b2b3bf1-be01-4088-8695-b18235e0b2cb">
+
 _The landscape is dry and arid when the soil moisture is low_
 
 <img width="726" alt="Screenshot 2023-11-06 181144" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1e72838b-13b1-4107-a4c4-b62e4cfa907f">
+
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
+This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder
+
+<img width="726" alt="Unity screenshot" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/92c74470-1293-4b98-be86-af728e714a26">
+
+_Sculpting the terrain in Unity_
+
+If you wish to make this for yourself, you will need to import the asset folder in the ```plant_monitor_unity``` folder. You will also need to import the following free third-party assets from the Unity store. These have been excluded from this repository for copyright reasons:
+
+- Ancient Ruins and Plants (https://assetstore.unity.com/packages/3d/props/exterior/ancient-ruins-and-plants-20191) by Comeback
+- Fantasy Skybox FREE (https://assetstore.unity.com/packages/2d/textures-materials/sky/fantasy-skybox-free-18353) by Render Knight
+- Grass Flowers Pack Free (https://assetstore.unity.com/packages/2d/textures-materials/nature/grass-flowers-pack-free-138810) by ALP
+- Outdoor Ground Textures (https://assetstore.unity.com/packages/2d/textures-materials/floors/outdoor-ground-textures-12555) by A dog's life software
+- Terrain Sample Asset Pack (https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808) by Unity
+
 ## Future Implementations
+- Smoother transistion between terrain textures/seasons in the Unity app
+- Test the plant monitor with a battery pack. This, together with the multiple WiFi networks defined with the WiFiMulti library, should allow the plant monitor to become a portable setup - monitor your plant on the go!
