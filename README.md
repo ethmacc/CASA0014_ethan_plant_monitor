@@ -196,5 +196,5 @@ You will also need to import the Asset folder from the M2MQTT Github repo (https
 
 ## Future Implementations
 - Smoother transistion between terrain textures/seasons in the Unity app
-- More life in the UNity landscapes - maybe animated animals?
+- More life in the Unity landscapes - maybe animated animals?
 - Test the plant monitor with a battery pack. This, together with the multiple WiFi networks defined with the WiFiMulti library, should allow the plant monitor to become a portable setup - monitor your plant on the go!
