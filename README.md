@@ -38,8 +38,8 @@ And, of course, a plant to test the device with! Note that the author attempted 
 ### Physical wiring
 The circuit I have used is a variation on the classic arduino soil moisture sensor (the primary one I've looked at is https://www.instructables.com/Moisture-Detection-With-Two-Nails/ by ronnietucker). The basic principle behind this is that it measures resistance between two nail electrodes in the soil, and since moist soil contains water, which conducts electricity, the resistance is lowered when the plant has been recently watered. The version used here makes use of the Feather Huzzah to control when the nail sensor is switched on to take readings (every 1 minute) to prevent electrolysis, which happens whenever current flows through the nails.
 
+THe diagram for the circuit is shown below (taken from the CASA0014 workshop notes):
 <img width="1000" alt="14e0883730a7e435" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/1ae18925-a535-420e-a78b-a5cd9a122ca1">
-(Taken from the CASA0014 workshop notes)
 
 Unlike Ronnie Tucker's instructable, multiple resistors are used here:
 
