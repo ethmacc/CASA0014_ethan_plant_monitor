@@ -44,7 +44,7 @@ The diagram for the circuit is shown below (taken from the CASA0014 workshop not
 Unlike Ronnie Tucker's instructable, multiple resistors are used here:
 
 - One is connected to the DHT22
-- While the other three are connected in series as a voltage divider sub-circuit (https://learn.sparkfun.com/tutorials/voltage-dividers/all). This reduces the voltage flowing through the nail sensor circuit before it is returned to the ADC pin to create an analogue reading.
+- While the other three are connected in series as a voltage divider sub-circuit (https://learn.sparkfun.com/tutorials/voltage-dividers/all). This reduces the voltage flowing through the nail sensor circuit before it is returned to the ADC pin to create an analogue reading. This is essential as the Huzzah reads analogue readings up to 1V only.
 
 
 ### Initial setup
