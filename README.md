@@ -176,7 +176,9 @@ _The landscape is dry and arid when the soil moisture is low_
 
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
-This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts (```mqttController.cs``` and ```mqttReceiver.cs```) from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (```SwapTerrain.cs```, adapted from https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder
+This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts (```mqttController.cs``` and ```mqttReceiver.cs```) from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (```SwapTerrain.cs```, adapted from https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder.
+
+The mqtt scripts modify the M2MQTT classes from the M2MQTT library such that they can be used to assign a subscribed value from the MQTT broker to a TextMeshPro object in the Unity GUI. The SwapTerrain script is much less copmlex, and simply swaps out the ```.diffuseTexture``` attribute of the terrain out for a new assigned texture. With the help of a conditional statement, this can than be used to control the terrain texture using the values received from the MQTT subscription.
 
 <img width="726" alt="Unity screenshot" src="https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/92c74470-1293-4b98-be86-af728e714a26">
 
@@ -189,6 +191,8 @@ If you wish to make this for yourself, you will need to import the asset folder 
 - Grass Flowers Pack Free (https://assetstore.unity.com/packages/2d/textures-materials/nature/grass-flowers-pack-free-138810) by ALP
 - Outdoor Ground Textures (https://assetstore.unity.com/packages/2d/textures-materials/floors/outdoor-ground-textures-12555) by A dog's life software
 - Terrain Sample Asset Pack (https://assetstore.unity.com/packages/3d/environments/landscapes/terrain-sample-asset-pack-145808) by Unity
+
+You will also need to import the Asset folder from the M2MQTT Github repo (https://github.com/CE-SDV-Unity/M2MqttUnity/tree/master/Assets)
 
 ## Future Implementations
 - Smoother transistion between terrain textures/seasons in the Unity app
