@@ -176,6 +176,10 @@ _The landscape is dry and arid when the soil moisture is low_
 
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
+https://youtu.be/dPvaEMdtxVA
+
+_Demo of the Unity app in action_
+
 This was done by sculpting a simple landscape object in Unity, following this tutorial: https://www.youtube.com/watch?v=ddy12WHqt-M. I then used scripts (```mqttController.cs``` and ```mqttReceiver.cs```) from the CASA0019 workshop extras to pull in data from the MQTT server (https://workshops.cetools.org/codelabs/CASA0019-unity-mqtt/index.html?index=..%2F..index#0) and then linked this to a controller that would change the terrain and skybox textures at runtime using a terrain texture swapping script modified from the Unity forums (```SwapTerrain.cs```, adapted from https://forum.unity.com/threads/changing-terrain-texture-on-runtime.1216140/). The C# code as well as other asset data for this Unity project can be found in the ```plant_monitor_unity``` folder.
 
 The mqtt scripts modify the M2MQTT classes from the M2MQTT library such that they can be used to assign a subscribed value from the MQTT broker to a TextMeshPro object in the Unity GUI. The SwapTerrain script is much less complex, and simply swaps out the ```.diffuseTexture``` attribute of the terrain out for a new assigned texture. With the help of a conditional statement, this can than be used to control the terrain texture using the values received from the MQTT subscription.
