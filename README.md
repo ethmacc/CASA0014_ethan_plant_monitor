@@ -176,7 +176,7 @@ _The landscape is dry and arid when the soil moisture is low_
 
 _The landscape is snowy when the plant is cold and the air humidity is high_
 
-https://youtu.be/dPvaEMdtxVA
+https://github.com/ethmacc/CASA0014_ethan_plant_monitor/assets/60006290/67e86437-78f1-440b-ad32-c07ce825c29c
 
 _Demo of the Unity app in action_
 
