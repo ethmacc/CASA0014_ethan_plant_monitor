@@ -4,9 +4,9 @@
 
 Timezone GB;
 
-const char* ssid = "CE-Hub-Student";
-const char* password = "casa-ce-gagarin-public-service";
-const char* host = "iot.io";
+const char* ssid = "";
+const char* password = "";
+const char* host = "";
 
 void setup() {
   Serial.begin(115200);
